@@ -1,16 +1,13 @@
 body{
+    background-image: url(processador-3.jpg);
 
 }
 
-img{
-    background: fixed;
-    height:100% ;
-    width:100% ;
 
-}
 
 
 h2{
     background-color: midnightblue;
+    color: ghostwhite;
     text-align: center;
 }
