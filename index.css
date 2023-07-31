@@ -9,12 +9,13 @@ h2{
 }
 
 p{
+    text-decoration: underline;
     color: white;
-    text-align: left;
+    text-align: center;
 }
 
 
 p{
     color: white;
-    text-align: left;
+    text-align: center;
 }
