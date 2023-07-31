@@ -1,29 +1,52 @@
-let vectors = [];
-let amount = 8000;
-let speed = 1;
-let size = 10;
+var c = document.getElementById("c");
+var ctx = c.getContext("2d");
 
-function setup() {
-  createCanvas(windowWidth,windowHeight)
-  background(10)
-  
-  stroke(200,200,200, 10)
-  
-  for ( var i = 0; i < amount; i++ ) {
-    vectors.push(createVector(random(width),random(height)))
-  }
+//faz o canvas full screen
+c.height = window.innerHeight;
+c.width = window.innerWidth;
+
+//caracteresDaChuva
+var caracteresDaChuva = "0 1";
+//converte a string em um array de caracteres unicode
+caracteresDaChuva = caracteresDaChuva.split("");
+
+var font_size = 10;
+var columns = c.width/font_size; //numero de colunas da chuva.
+
+//an array of drops - one per column
+var drops = [];
+//x below is the x coordinate
+//1 = y co-ordinate of the drop(same for every drop initially)
+for(var x = 0; x < columns; x++)
+	drops[x] = 1; 
+
+//drawing the characters
+function draw()
+{
+	//Black BG for the canvas
+	//translucent BG to show trail
+	ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+	ctx.fillRect(0, 0, c.width, c.height);
+	
+	ctx.fillStyle = "#0F0"; //green text
+	ctx.font = font_size + "px arial";
+	//looping over drops
+	for(var i = 0; i < drops.length; i++)
+	{
+		//a random chinese character to print
+		var text = caracteresDaChuva[Math.floor(Math.random()*caracteresDaChuva.length)];
+		//x = i*font_size, y = value of drops[i]*font_size
+		ctx.fillText(text, i*font_size, drops[i]*font_size);
+		
+		//sending the drop back to the top randomly after it has crossed the screen
+		//adding a randomness to the reset to make the drops scattered on the Y axis
+		if(drops[i]*font_size > c.height && Math.random() > 0.975)
+			drops[i] = 0;
+		
+		//incrementing Y coordinate
+		drops[i]++;
+	}
 }
 
-function draw() {
-  for ( vector of vectors) {
-    let randomisation = noise(vector.x/99, vector.y/99) * TAU;
-    
-    vector.add(cos(randomisation),sin(randomisation))
-    
-    point(
-      constrain(vector.x, 100, width-100),
-      constrain(vector.y, 100, height-100)
-    )
-  }
-}
+setInterval(draw, 33);
 
