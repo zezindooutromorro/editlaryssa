@@ -1,4 +1,48 @@
 
+body {
+    background-color: #3E3217;
+    font-family:Arial;
+  }
+  
+  .contenedor{
+    width:900px;
+    /*border:2px solid #fff;*/
+    margin:0px auto;
+    
+  }
+  .col-2{
+    display:inline-block;
+    width:48%;
+    vertical-align:top;
+  }
+    .titulo{
+      padding:30px 15px;
+    }
+    .imagen{
+      background-color:#883D18;
+      height:100px;
+    }
+  
+  #text-animation{
+    color:transparent;
+    font-size:30px;
+  }
+  .ta-letra{
+    transition: color 0.2s;
+  }
+  
+  
+
+
+
+
+
+
+
+
+
+
+
 *{
     margin: 0%;
     padding: 0%;
