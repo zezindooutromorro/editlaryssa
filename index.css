@@ -75,6 +75,11 @@ body {
       inset 0 1px 0 0 black,
       inset 0 -1px 0 0 black;
   }
+
+
+  p{
+    text-size-adjust: 75px;
+  }
   
 
 
