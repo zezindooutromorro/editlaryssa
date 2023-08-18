@@ -89,7 +89,10 @@ body {
   }
   
 
-
+audio{
+  width: 90%;
+  height: 50%;
+}
 
 
 
